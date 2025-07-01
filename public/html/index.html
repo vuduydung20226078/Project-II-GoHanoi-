@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoHanoi</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/login.css"/>
+   
+</head>
+
+<body>
+    <header class="hero">
+        <div class="navbar">
+            <div class="logo">GoHanoi🚲</div>
+            <nav>
+                <ul>
+                    <li><a href="#"><b>Giới thiệu</b></a></li>
+                    <li><a href="#"><b>Khám phá Hà Nội</b></a></li>
+                    <li><a href="#"><b>Trải nghiệm</b></a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-book"><b>Thuê xe đạp</b></a>
+        </div>
+
+        <div class="hero-content">
+            <div class="left">
+                <h1 id="place-name">HỒ <br /> GƯƠM</h1>
+                <p class="desc" id="place-desc">Biểu tượng trái tim của thủ đô Hà Nội ngàn năm văn hiến</p>
+            </div>
+            <div class="right">
+                <div class="destination-num">
+                    <span class="num" id="place-index">01</span>
+                    <p id="place-sub">Hồ Gươm<br />Hà Nội</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="nav-arrows">
+            <button id="prevBtn">&#10094;</button>
+            <button id="nextBtn">&#10095;</button>
+        </div>
+    </header>
+    <section id="about" class="about-section">
+        <h2>Khám Phá Hà Nội Theo Cách Riêng Của Bạn</h2>
+        <p class="about-desc">
+            Dịch vụ cho thuê xe đạp mang đến cho bạn một phương tiện di chuyển linh hoạt, tiện lợi và thân thiện với môi
+            trường để
+            khám phá Hà Nội theo cách riêng của mình. Với chiếc xe đạp nhỏ gọn, bạn có thể dễ dàng len lỏi qua những con
+            phố cổ
+            kính, dừng chân tại các quán cà phê ven đường, hay thong thả đạp xe quanh hồ Tây lộng gió và thơ mộng. Mỗi
+            cung đường
+            bạn đi qua không chỉ là một hành trình di chuyển, mà còn là cơ hội để cảm nhận nhịp sống chậm rãi, gần gũi
+            và đầy chất
+            thơ của thủ đô. Dù bạn là du khách muốn tìm hiểu văn hóa bản địa, hay người dân mong muốn tận hưởng một ngày
+            cuối tuần
+            thư thái, dịch vụ xe đạp của chúng tôi luôn sẵn sàng đồng hành, giúp bạn trải nghiệm Hà Nội một cách chân
+            thực và đáng
+            nhớ nhất.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🚲</div>
+                <h4>Xe chất lượng cao</h4>
+                <p>Luôn bảo trì, đầy đủ kiểu xe: city bike, thể thao, trẻ em.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🗺️</div>
+                <h4>Lộ trình gợi ý</h4>
+                <p>Khám phá các tuyến đường đẹp và an toàn quanh Hà Nội.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📞</div>
+                <h4>Hỗ trợ 24/7</h4>
+                <p>Đặt xe dễ dàng, đội ngũ sẵn sàng tư vấn mọi lúc.</p>
+            </div>
+        </div>
+
+    </section>
+    <section id="testimonials" class="testimonial-section">
+        <h2>Khách Hàng Nói Gì Về Chúng Tôi</h2>
+
+        <!-- Mũi tên trái -->
+        <button class="arrow left" onclick="prevTestimonial()">&#10094;</button>
+
+        <!-- Danh sách đánh giá -->
+        <div class="testimonial-list" id="testimonial-list">
+            <div class="testimonial">
+                <p class="quote">“Trải nghiệm đạp xe quanh hồ Tây thật tuyệt vời! Dịch vụ rất chuyên nghiệp.”</p>
+                <div class="rating"><span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=5" alt="User 1">
+                    <div class="info"><strong>Nguyễn Thảo</strong><span>Hà Nội</span></div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p class="quote">“Tôi đã thuê xe cho cả nhóm bạn. Giao xe nhanh, giá hợp lý. Rất hài lòng!”</p>
+                <div class="rating"><span>⭐️⭐️⭐️⭐️</span></div>
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=12" alt="User 2">
+                    <div class="info"><strong>Minh Tuấn</strong><span>TP. Hồ Chí Minh</span></div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p class="quote">“Hỗ trợ tận tình, có cả gợi ý các cung đường đẹp. Lần sau tôi sẽ thuê tiếp!”</p>
+                <div class="rating"><span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=8" alt="User 3">
+                    <div class="info"><strong>Lan Anh</strong><span>Đà Nẵng</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mũi tên phải -->
+        <button class="arrow right" onclick="nextTestimonial()">&#10095;</button>
+    </section>
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <!-- Cột 1: Giới thiệu -->
+            <div class="footer-col">
+                <h3>BikeVN</h3>
+                <p>Chọn xe đạp, chọn nhịp sống Hà Nội chậm rãi & sâu sắc.</p>
+
+                <!-- Biểu tượng MXH -->
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="contact-info">
+                    <h3>Liên hệ</h3>
+                    <p style="color: black">Gọi ngay cho chúng tôi để đặt xe hoặc hỗ trợ:</p>
+                    <a href="tel:0123456789" class="phone-link">📞 0123 456 789</a>
+                </div>
+            </div>
+
+            <!-- Cột 2: Form liên hệ -->
+
+            <!-- Cột 3: Bản đồ -->
+            <div class="footer-col">
+                <h4>Địa chỉ cửa hàng</h4>
+                <p>18 Tràng Tiền, Hoàn Kiếm, Hà Nội</p>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.196836418145!2d105.85358107503133!3d21.024808680623533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abeb8585b7a7%3A0x76b026e36c369749!2zMTggVHLDoG5nIFRp4buBbiwgSG_DoG4gS2nhur9tLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1748420057844!5m2!1svi!2s"
+                        width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 BikeVN. All rights reserved.</p>
+        </div>
+    </footer>
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required >
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Log in</button>
+                <div class="login-register">
+                    <p>Don't have an account?
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox">I agree to the terms & conditions
+                    </label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account?
+                        <a href="#" class="login-link">Log in</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Font Awesome CDN -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+
+    <script src="/js/script.js"></script>
+    <script src="/js/login.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

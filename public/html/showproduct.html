@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoHanoi</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/showproduct.css">
+</head>
+
+<body id="body">
+    <!-- Navbar -->
+
+    <!-- Dropdown menu profile -->
+   
+    <div class="header-page">
+        <div>
+            <input id="search-info" type="text" placeholder="Bạn muốn tìm xe nào?">
+            <ion-icon name="search" id="icon-search"></ion-icon>
+        </div>
+        <div class="header-page-icon">
+            <ion-icon name="cart" id="cart-icon" title="Danh sách quan tâm"></ion-icon>
+            <div id="cart-count-bicycle" class="count-info">0</div>
+            <ion-icon name="notifications" class="noti-icon" title="Thông báo"></ion-icon>
+            <div id="count-noti" class="count-info">0</div>
+            <img src="/public/assets/locations/hanoi.jpg" class="user-pic" id="userpic" title="Thông tin tài khoản">
+        </div>
+        <div class="drop-menu-profile" id="drop-menu-profile">
+            <a id="username" href="#"> <img src="/public/assets/locations/hanoi.jpg" class="user-pic-in">Username0 </a>
+            <a href="#" id="profile-icon">
+                <ion-icon name="person"></ion-icon> Thông tin cá nhân
+            </a>
+            <a href="#" id="text-view-list-borrow">
+                <ion-icon name="bicycle-outline"></ion-icon> Danh sách xe đang thuê
+            </a>
+            <a href="#">
+                <ion-icon name="help-circle"></ion-icon> Hỗ trợ: 0329876604
+            </a>
+            <a href="#">
+                <ion-icon name="log-out-outline"></ion-icon> Đăng xuất </a>
+        </div>
+    </div>
+    <!-- show list bikes -->
+    <div id="container-lib">
+        <button class="filter-by-status" id="filter-by-status">
+            <div>Tất cả xe đạp trong kho</div>
+            <ion-icon name="chevron-down-outline" id="chevron-filter-status"></ion-icon>
+        </button>
+        <button id="option-filter-status">
+            <div class="options">Xe được thuê nhiều trong tháng</div>
+            <div class="options">Xe có điểm đánh giá cao</div>
+        </button>
+        <ul id="list-bicycle">
+            <li>
+                <div class="bicycle-item">
+                    <div class="bicycle-top">
+                        <a href="#" class="bicycle-picture">
+                            <img src="/public/assets/products/xe-dap-dia-hinh.png" alt="Ảnh xe đạp">
+                            <button class="view-detail">
+                                <h2>Xe RXP100</h2>
+                                <div class="status-rate">
+                                    <li class="status-bicycle">Status: Còn</li>
+                                    <li class="rate-bicycle">Rate: 9.0
+                                        <ion-icon name="star" class="icon-star"></ion-icon>
+                                    </li>
+                                </div>
+                                <p class="content-preview"><b>Mô tả:</b> Xe đạp thể thao RXP100 phù hợp cho người lớn, sử dụng tốt trên mọi địa hình.
+                                Trang bị 21 tốc độ, khung hợp kim chắc chắn, yên ngồi êm ái, phù hợp cho các chuyến đi dã ngoại hoặc du lịch trong thành phố.</p>
+                                <p><b>ID:</b> RX123</p>
+                                <p><b>Kiểu:</b> Xe địa hình</p>
+                                <p><b>Hãng:</b> Giant</p>
+                                <p><b>Bình luận:</b> ... (Click để xem chi tiết)</p>
+                            </button>
+
+                         </a>
+                    <div id="category">Xe địa hình</div>
+                </div>
+                <div class="bicycle-info">
+                    <h2>RXP100</h3>
+                        <p>Hãng: Giant </p>
+                        <p>Tình trang: Mới 95%</p>
+                        <p>Giá thuê: 50.000 VNĐ/ngày</p>
+                        <p>Đã mượn: 12</p>
+                        <p>Còn: 5</p>
+                </div>
+                <button type="button" class="add-to-cart">
+                    <ion-icon name="cart" class="cart"></ion-icon>
+                    Thêm Vào Giỏ
+                </button>
+
+            </li>
+    </ul>
+    <!-- Lọc, .... -->
+    <section id="filter-by">
+        <div>
+            <input id="filter-category" type="text" placeholder="Bạn muốn tìm thể loại nào?">
+            <ion-icon name="search" id="icon-filter-category"></ion-icon>
+        </div>
+        <div id="option-category"></div>
+        <div>
+            <input id="filter-author" type="text" placeholder="Bạn muốn tìm tác giả nào?">
+            <ion-icon name="search" id="icon-filter-author"></ion-icon>
+        </div>
+        <div id="option-author"></div>
+    </section>
+
+    <!-- Chi tiết sách -->
+    <button id="title-details-bicycle">Chi tiết sách
+        <ion-icon name="close-outline" id="close-details-bicycle"></ion-icon>
+    </button>
+    <section class="see-bicycle-details">
+        <div class="details-overview" id="details-overview">
+            <img src="/Assets/user0.png" id="picture-bicycle" alt="Ảnh bìa sách">
+            <h2>Chaien </h2>
+            <h3 id="rate-count">
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+                <ion-icon name="star" class="count-star"></ion-icon>
+            </h3>
+            <p><b>Tác giả:</b> Fujiko F. Fujio</p>
+            <p><b>Thể loại:</b> Truyện tranh</p>
+            <p><b>ID:</b> 978-4-1234-56789</p>
+            <p><b>Ngày xuất bản: </b>12/07/2024</p>
+            <p class="description-bicycle"><b>Mô tả:</b> Bộ truyện được xem là huyền thoại của Nhật Bản. Nói về cuộc
+                sống
+                của một chú nhóc tên Nobita, tính tình hậu đậu và chú mèo máy Doremon đến từ thế kỉ 22 cùng những người
+                bạn Xuka, Chaien, Xeko; để từ đó gây ra bao tiếng cười và rút ra những bài học ý nghĩa cho người xem !!
+            </p>
+            <p>------------------------------------------------------------------------------------------</p>
+            <p><b>Bình luận:</b></p>
+        </div>
+        <div id="section-container-cmt">
+            <div id="section-cmt">
+                <img class="user-pic-cmt" id="user-pic-cmt" src="/Assets/user0.png">
+                <textarea row="0" id="cmt-input" placeholder="Bình luận..."></textarea>
+            </div>
+            <div type="button" id="btn-post-cmt">
+                <button id="text-post-cmt">Đăng </button>
+            </div>
+            <div id="section-content">
+            </div>
+        </div>
+    </section>
+    <button id="confirm-actions">
+        <b>Bạn chắc chắn muốn xóa bình luận?</b>
+        <div id="actions">
+            <span id="back">Hủy</span>
+            <span id="confirm">Xác nhận</span>
+        </div>
+    </button>
+    <button id="btn-edit-content">
+        <div contenteditable="true" id="content-to-edit"></div>
+        <div id="actions-edit">
+            <span id="confirm-to-edit">Xác nhận</span>
+            <span id="delete-action">Hủy</span>
+        </div>
+    </button>
+    <!-- thông báo chung -->
+    <div id="notification" class="notification">
+        <ion-icon name="checkmark-outline"></ion-icon> Đăng nhập thành công!
+    </div>
+    <!-- vô hiệu hóa scroll thẻ body -->
+    <div id="overlay" class="overlay"></div>
+    <!--  thông tin trong giỏ chờ -->
+    <button id="title-cart">Thông tin trong giỏ hàng
+        <ion-icon name="close-outline" id="close-cart"></ion-icon>
+    </button>
+    <section id="in-cart">
+        <button class="actions-in-cart" onclick="pickAllElementInCart(this)">Chọn tất cả</button>
+        <button class="actions-in-cart" onclick="deleteElementsInCart()">Xóa nhiều</button>
+        <button class="actions-in-cart">Tiến hành thuê xe</button>
+        <table id="list-info-cart">
+            <thead>
+                <tr>
+                    <th>Ảnh xe</th>
+                    <th>Tên xe</th>
+                    <th>Loại xe</th>
+                    <th>Hãng</th>
+                    <th>Giá thuê/h</th>
+                    <th>Số lượng</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-cart">
+            </tbody>
+        </table>
+    </section>
+    <!-- Thông tin cá nhân (profile) -->
+    <button id="title-profile">Thông tin cá nhân
+        <ion-icon name="close-outline" id="close-profile"></ion-icon>
+    </button>
+    <section id="in-profile">
+        <img id="avt-in-profile" src="/Assets/user0.png" title="Ảnh đại diện">
+        <div><b>Họ và tên:</b></div>
+        <div class="info-profile" id="profile-name" contenteditable="false">Vu Duy Dung</div>
+        <div><b>Số điện thoại:</b></div>
+        <div class="info-profile" id="profile-phone" contenteditable="false">0329876555</div>
+        <div><b>Địa chỉ:</b></div>
+        <div class="info-profile" id="profile-address" contenteditable="false">Ha Noi</div>
+        <button id="update-profile">Cập nhật</button>
+    </section>
+    <!-- Danh sách mượn  -->
+    <button id="title-list-borrow">Thông tin danh sách mượn
+        <ion-icon name="close-outline" id="close-list-borrow"></ion-icon>
+    </button>
+    <section id="in-list-borrow">
+        <table id="list-bicycle-borrow">
+            <thead>
+                <tr>
+                    <th>Mã sách</th>
+                    <th>Ảnh sách</th>
+                    <th>Tên sách</th>
+                    <th>Ngày mượn</th>
+                    <th>Hạn trả</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-list-borrow">
+            </tbody>
+        </table>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="/public/js/showproduct.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

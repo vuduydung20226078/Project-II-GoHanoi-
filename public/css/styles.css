@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+/* mac dinh */
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  transition: background-image 0.8s ease-in-out;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem 3rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #a3e3ff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar a:hover{
+    color: #00c853;
+}
+
+.btn-book {
+  background-color: #0b100d;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 75%;
+  padding: 0 3rem 3rem;
+}
+
+.hero-content .left h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero-content .left .desc {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.destination-num {
+  text-align: right;
+}
+
+.destination-num .num {
+  font-size: 4rem;
+  font-weight: 700;
+  display: block;
+}
+
+.destination-num p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.nav-arrows {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.nav-arrows button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.4rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-arrows button:hover {
+  background: rgba(50, 44, 44, 0.4);
+}
+
+/* gioi thieu */
+.about-section {
+  padding: 80px 20px;
+  text-align: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  background-image: url('/assets/locations/hanoi.jpg');
+}
+
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #a3e3ff;
+}
+
+.about-desc {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: #000000;
+  line-height: 1.6;
+  text-align: start;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.feature {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature .icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.feature h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007b5e;
+}
+
+.feature p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* trai nghiem khach hang */
+.testimonial-section {
+  position: relative;
+  padding: 80px 20px;
+  height: 100vh;
+  background-color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.testimonial-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.testimonial-list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.testimonial {
+  min-width: 100%;
+  max-width: 100%;
+  background: #f1f1f1;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0cb67e;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
+}
+
+.rating {
+  font-size: 20px;
+  color: #f4c542;
+  margin-bottom: 16px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.user img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.info strong {
+  display: block;
+  font-size: 16px;
+  color: #222;
+}
+
+.info span {
+  font-size: 14px;
+  color: #777;
+}
+
+/* footer */
+.footer {
+  background-color: #0b3d2e;
+  color: #fff;
+  padding: 60px 100px 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+}
+
+.footer h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #0cb67e;
+}
+
+.footer h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0cb67e;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #0cb67e;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #2e5c4e;
+  padding-top: 20px;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #aaa;
+}
+/* Social icons */
+.social-icons {
+  margin-top: 15px;
+}
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #0cb67e;
+}
+
+/* Contact*/
+.contact-info {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  margin-top: 0;
+  height: 150px;
+  width: 400px;
+}
+
+.contact-info h3 {
+  margin-bottom: 0.5rem;
+  color: #2b4c7e;
+}
+
+.phone-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Map */
+.map iframe {
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+
+

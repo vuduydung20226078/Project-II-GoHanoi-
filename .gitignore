@@ -1,0 +1,10 @@
+# Thư mục node_modules (thường gặp trong dự án Node.js)
+node_modules/
+
+# Các file cấu hình của IDE (VSCode, IntelliJ, etc.)
+.vscode/
+.idea/
+
+# Các file log
+*.log
+.env
