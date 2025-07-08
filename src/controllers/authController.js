@@ -12,8 +12,8 @@ class AuthController {
     static async login(req, res) {
         try {
             const { email, password } = req.body;
-            const user = await AuthService.loginUser(email, password);
-            res.status(200).json({ message: 'Đăng nhập thành công', user });
+            const token = await AuthService.loginUser(email, password);
+            res.status(200).json({ message: 'Đăng nhập thành công', token });
         } catch (err) {
             res.status(400).json({ message: err.message });
         }

@@ -4,19 +4,27 @@ const Brand = require('../models/brandModel');
 
 class CartService {
     async getCartByUser(userId) {
-        return await CartItem.findAll({
+        const items = await CartItem.findAll({
             where: { user_id: userId },
             include: {
                 model: Bike,
                 include: [Brand]
             }
         });
-    }
 
-    async addToCart(userId, bikeId) {
+        // Chuyển tất cả các instance thành JSON thuần túy
+        return items.map(item => item.toJSON());
+    }
+    
+
+    async addToCart(userId, bikeId, quantity = 1) {
+        if (quantity <= 0) {
+            throw new Error("Quantity must be greater than 0");
+        }
+
         const [item, created] = await CartItem.findOrCreate({
             where: { user_id: userId, bike_id: bikeId },
-            defaults: { quantity: 1 }
+            defaults: { quantity }
         });
 
         if (!created) {
@@ -24,8 +32,9 @@ class CartService {
             await item.save();
         }
 
-        return item;
+        return item.toJSON();
     }
+    
 
     async removeFromCart(itemId) {
         return await CartItem.destroy({ where: { id: itemId } });

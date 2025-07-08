@@ -7,7 +7,7 @@ class BikeService {
                 include: [{ model: Brand }],
                 limit
             });
-            return bikes;
+            return bikes.map(bike => bike.toJSON());
         } catch (error) {
             throw new Error(error.message);
         }

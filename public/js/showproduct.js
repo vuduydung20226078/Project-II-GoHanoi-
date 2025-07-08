@@ -1,3 +1,20 @@
+// Function to decode JWT token (không cần key để giải mã)
+function decodeToken(token) {
+    const payload = token.split('.')[1]; // Lấy phần payload của token
+    const decoded = JSON.parse(atob(payload)); // Giải mã base64 và chuyển sang JSON
+    return decoded;
+}
+
+// Lấy token từ localStorage
+const token = localStorage.getItem('authToken');
+let userInfo
+// Giải mã token để lấy thông tin
+if (token) {
+    userInfo = decodeToken(token);
+    console.log(userInfo.id); // Sử dụng user id
+    console.log(userInfo.username); // Sử dụng username
+}
+
 //hàm fetchBikes sẽ lấy dữ liệu từ API và hiển thị danh sách xe đạp
 // Hàm này sẽ được gọi khi trang được tải
 async function fetchBikes() {
@@ -27,7 +44,7 @@ async function fetchBikes() {
                         <p>Đã thuê: 12</p>
                         <p>Còn lại: 5</p>
                     </div>
-                    <button type="button" class="add-to-cart">
+                    <button type="button" class="add-to-cart" onclick="addToCart(${bike.id})">
                         <ion-icon name="cart" class="cart"></ion-icon>
                     Thêm Vào Giỏ
                     </button>
@@ -64,3 +81,35 @@ closeCartBtn.addEventListener("click", (e) => {
     document.getElementById("overlay").classList.remove("active");
     body.classList.remove("no-scroll");
 });
+
+// Thêm sản phẩm vào giỏ hàng
+const infoUser = JSON.parse(sessionStorage.getItem("infoUser"));
+if (!infoUser) {
+    alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
+   
+}
+async function addToCart(bikeId) {
+    const userId = JSON.parse(sessionStorage.getItem("infoUser")).userId;
+    const cartItem = {
+        userId: userInfo.id, // Sử dụng userId từ thông tin người dùng đã đăng nhập
+        bikeId: bikeId
+    };
+    console.log(cartItem);
+    try {
+        const response = await fetch('http://localhost:3000/api/cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cartItem)
+        });
+        if (response.ok) {
+            alert('Đã thêm vào giỏ hàng');
+
+        } else {
+            alert('Thêm vào giỏ hàng thất bại');
+        }
+    } catch (error) {
+        console.error('Error adding to cart:', error);
+    }
+}

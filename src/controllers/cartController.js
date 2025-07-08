@@ -1,4 +1,4 @@
-const cartService = require('../services/cartService/');
+const cartService = require('../services/cartService');
 
 class CartController {
     async getCart(req, res) {
@@ -23,7 +23,7 @@ class CartController {
 
     async remove(req, res) {
         try {
-            await cartService.removeFromCart(req.params.id);
+            await cartService.removeFromCart(req.params.cartId);
             res.json({ message: 'Đã xoá khỏi giỏ hàng' });
         } catch (err) {
             res.status(500).json({ message: 'Lỗi khi xoá khỏi giỏ hàng', error: err });
@@ -31,7 +31,7 @@ class CartController {
     }
     async clear(req, res) {
         try {
-            await cartService.clearCart(req.params.id);
+            await cartService.clearCart(req.params.userId);
             res.json({ message: 'Đã xoá tất cả danh sách khỏi giỏ hàng' });
         } catch (err) {
             res.status(500).json({ message: 'Lỗi khi xoá tất cả danh sách khỏi giỏ hàng', error: err });

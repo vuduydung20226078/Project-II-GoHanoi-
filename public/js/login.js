@@ -47,17 +47,11 @@ async function handleLogin(event) {
     if (response.ok) {
       const data = await response.json();
       console.log(data);
-      const infoUser = {
-        username: data.username,
-        userID: data.userID,
-        imageLink: data.imageLink,
-        name: data.name,
-        address: data.address,
-        phone: data.phone,
-        userRole: data.userRole
-      }
+     
       sessionStorage.setItem("isLogin", true);
-      sessionStorage.setItem("infoUser", JSON.stringify(infoUser));
+      // Sau khi nhận token từ server (ví dụ từ response)
+      localStorage.setItem('authToken', data.token);
+
       window.location.href = "/html/showproduct.html";
     }
   } catch (error) {

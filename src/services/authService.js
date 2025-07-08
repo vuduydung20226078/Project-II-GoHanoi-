@@ -44,7 +44,7 @@ class AuthService {
             process.env.JWT_SECRET || 'secret123', // luu trong env
             { expiresIn: '1h' }
           );
-        return { token, email: user.email };
+        return token;
     }
 }
 

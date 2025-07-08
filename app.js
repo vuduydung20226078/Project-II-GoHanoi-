@@ -24,7 +24,8 @@ app.use('/api/bikes', bikeRoutes);
 const authRoutes = require('./src/routes/auth.routes');
 app.use('/api/auth', authRoutes);
 
-
+const cartRoutes = require('./src/routes/cart.routes');
+app.use('/api/cart', cartRoutes);
 
 const PORT = 3000;
 
