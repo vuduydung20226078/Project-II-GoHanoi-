@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Quản Trị - Thuê Xe Đạp</title>
+    <link rel="stylesheet" href="/public/css/pageadmin.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>🚴 Quản Trị GoHanoi</h2>
+        <ul>
+            <li class="active">Tổng quan</li>
+            <li>Quản lý xe đạp</li>
+            <li>Quản lý người dùng</li>
+            <li>Quản lý đơn hàng</li>
+            <li>Báo cáo</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Tổng quan hệ thống</h1>
+        </header>
+
+        <div class="stats">
+            <div class="card">
+                <h3>Tổng số xe đạp</h3>
+                <p id="total-bikes">0</p>
+            </div>
+            <div class="card">
+                <h3>Tổng số người dùng</h3>
+                <p id="total-users">0</p>
+            </div>
+            <div class="card">
+                <h3>Tổng số đơn hàng</h3>
+                <p id="total-orders">0</p>
+            </div>
+            <div class="card">
+                <h3>Doanh thu hôm nay</h3>
+                <p id="revenue-today">0 VNĐ</p>
+            </div>
+        </div>
+
+        <h2>Trạng thái đơn hàng</h2>
+        <div class="status-cards">
+            <div class="status pending">
+                <h4>Chờ duyệt</h4>
+                <p id="pending-orders">0</p>
+            </div>
+            <div class="status ongoing">
+                <h4>Đang thuê</h4>
+                <p id="ongoing-orders">0</p>
+            </div>
+            <div class="status returned">
+                <h4>Đã trả</h4>
+                <p id="returned-orders">0</p>
+            </div>
+            <div class="status failed">
+                <h4>Thất bại</h4>
+                <p id="failed-orders">0</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/pageadmin.js"></script>
+</body>
+
+</html>

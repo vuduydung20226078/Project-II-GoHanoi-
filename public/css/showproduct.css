@@ -842,6 +842,9 @@ a {
 #table-body-cart tr:hover {
     background-color: #91a897;
 }
+.cart-item.selected {
+    background-color: #91a897;
+}
 
 #table-body-cart button {
     width: 75px;

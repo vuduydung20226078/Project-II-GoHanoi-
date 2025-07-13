@@ -71,7 +71,8 @@
     /* animation: close 5s linear infinite; THỬ HIỆU ỨNG ANIMATION */
 }
 .icon-close:hover{
-    background-color: aqua;
+    background-color: #005bea;
+    transition: background-color .3s ease;
     color: #010e1a;
 }
 
@@ -163,6 +164,11 @@
     font-size: 1em;
     color: #fff;
     font-weight: 500;
+}
+.btn:hover {
+    background: #005bea;
+    transition: background .3s ease;
+    color: #010e1a;
 }
 
 .login-register {

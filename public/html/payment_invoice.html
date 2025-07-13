@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hóa Đơn Thuê Xe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .invoice {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+        }
+
+        .invoice h2 {
+            text-align: center;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .invoice h3 {
+            margin-top: 20px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .invoice p {
+            margin: 5px 0;
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .invoice table th,
+        .invoice table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .invoice table th {
+            background-color: #f0f0f0;
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #e91e63;
+        }
+
+        .order-status {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #2196f3;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="invoice">
+        <h2>🧾 Hóa Đơn Thuê Xe</h2>
+
+        <div class="order-status">
+            Trạng thái đơn hàng: <span id="order-status"></span>
+        </div>
+
+        <div class="customer-info">
+            <h3>👤 Thông Tin Người Thuê</h3>
+            <p><strong>Họ và Tên:</strong> <span id="customer-name"></span></p>
+            <p><strong>Số điện thoại:</strong> <span id="customer-phone"></span></p>
+        </div>
+
+        <div class="rental-info">
+            <h3>🚲 Thông Tin Thuê</h3>
+            <p><strong>Thời gian nhận xe:</strong> <span id="receive-time"></span></p>
+            <p><strong>Thời gian trả xe:</strong> <span id="return-time"></span></p>
+            <p><strong>Số giờ thuê:</strong> <span id="rental-hours"></span></p>
+        </div>
+
+        <div class="bike-list">
+            <h3>📦 Xe Được Thuê</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên xe</th>
+                        <th>Loại</th>
+                        <th>Hãng</th>
+                        <th>Số lượng</th>
+                        <th>Giá/giờ</th>
+                        <th>Tổng</th>
+                    </tr>
+                </thead>
+                <tbody id="bike-list-body">
+                    <!-- Dữ liệu sẽ được render -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total-price">
+            💰 Tổng Tiền: <span id="total-price"></span> VNĐ
+        </div>
+    </section>
+
+    <script>
+        // 🔥 Fake dữ liệu trả về từ server
+        console.log(JSON.parse(sessionStorage.getItem("infoPaymentInvoice")))
+        const orderData = JSON.parse(sessionStorage.getItem("infoPaymentInvoice")) || {
+            payment_status: "paid",
+            name: "Nguyễn Văn A",
+            phone: "0912345678",
+            receive_time: "2023-10-01T10:00",
+            rental_hours: 2,
+            bikes: [
+                { name: "Xe Đạp Địa Hình", type: "Địa hình", brand: "Giant", quantity: 1, price_per_hour: 50000 },
+                { name: "Xe Đạp Thể Thao", type: "Thể thao", brand: "Trek", quantity: 1, price_per_hour: 60000 }
+            ],
+            total_price: 220000
+        };
+        function renderInvoice(data) {
+            document.getElementById("order-status").textContent =
+                data.payment_status === "paid" ?  `Đã thanh toán (#ORDER:${data.orderId})` : `Chưa thanh toán (#ORDER:${data.orderId})`;
+
+            document.getElementById("customer-name").textContent = data.name;
+            document.getElementById("customer-phone").textContent = data.phone;
+            document.getElementById("receive-time").textContent = new Date(data.receiveTime).toLocaleString();
+
+            const returnTime = new Date(data.receiveTime);
+            returnTime.setHours(returnTime.getHours() + data.rentalHours);
+            document.getElementById("return-time").textContent = returnTime.toLocaleString();
+
+            document.getElementById("rental-hours").textContent = data.rentalHours + " giờ";
+
+            const bikeListBody = document.getElementById("bike-list-body");
+            bikeListBody.innerHTML = "";
+
+            data.bikes.forEach(bike => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${bike.name}</td>
+                    <td>${bike.type}</td>
+                    <td>${bike.brand}</td>
+                    <td>${bike.quantity}</td>
+                    <td>${bike.price_per_hour.toLocaleString()} VNĐ</td>
+                    <td>${(bike.price_per_hour * bike.quantity * data.rentalHours).toLocaleString()} VNĐ</td>
+                `;
+                bikeListBody.appendChild(row);
+            });
+
+            document.getElementById("total-price").textContent = parseInt(data.totalPrice).toLocaleString();
+        }
+
+        // 👉 Render hóa đơn khi trang load
+        renderInvoice(orderData);
+    </script>
+</body>
+
+</html>

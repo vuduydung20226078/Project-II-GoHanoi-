@@ -10,17 +10,15 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
-<body>
+<body id="body">
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="../images/logo.png" alt="GoHanoi Logo" />
-            <h1>GoHanoi</h1>
+            <h1>GoHanoi🚲</h1>
         </div>
         <nav>
-            <a href="/">Trang chủ</a>
-            <a href="/html/products.html">Sản phẩm</a>
-            <a href="/html/checkout.html" class="active">Thanh toán</a>
+            <a href="/public/html/showproduct.html">Trang chủ</a>
+            <a href="" class="active">Thanh toán</a>
         </nav>
     </header>
 
@@ -51,13 +49,55 @@
                 <label for="phone">📱 Số Điện Thoại</label>
                 <input type="tel" id="phone" name="phone" placeholder="VD: 0912xxxxxx" required />
 
-                <label for="address">📍 Địa Chỉ</label>
-                <input type="text" id="address" name="address" placeholder="Nhập địa chỉ giao xe" required />
+                <label for="receive-time">⏰ Thời gian nhận xe</label>
+                <input type="datetime-local" id="receive-time" name="receive_time" required />
 
-                <button type="submit" class="btn-pay">💳 Xác Nhận Thanh Toán</button>
+                <label for="rental-hours">🕒 Thời gian thuê (giờ)</label>
+                <input type="number" id="rental-hours" name="rental_hours" min="1" max="48" value="1" required />
+
+                <label>💳 Phương thức thanh toán</label>
+                <div class="payment-methods">
+                    <label>
+                        <input type="radio" name="payment_method" value="cod" checked />
+                        Thanh toán khi nhận xe
+                    </label>
+                    <label>
+                        <input type="radio" name="payment_method" value="momo" />
+                        MOMO
+                    </label>
+                    <label>
+                        <input type="radio" name="payment_method" value="vnpay" />
+                        VNPAY
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-pay" class="btn-pay">💳 Xác Nhận Thanh Toán</button>
             </form>
         </section>
     </main>
+    <div id="overlay" class="overlay"></div>
+    <!-- Payment Form -->
+    <form class="payment-form">
+        <span class="close-payment-form" id="close-payment-form">&times;</span>
+        <h2>Thanh Toán Đơn Hàng</h2>
+
+        <div class="form-group">
+            <label>Mã đơn hàng</label>
+            <div class="order-code">#ORDER:12345</div>
+        </div>
+
+        <div class="form-group">
+            <label>Phương thức thanh toán</label>
+            <div class="payment-method">MOMO</div>
+        </div>
+
+        <div class="qr-section">
+            <p>Quét QR để thanh toán</p>
+            <img src="/public/assets/qrfake.jpg" alt="QR Code">
+        </div>
+
+        <button class="submit-btn" id="confirm-pay">Xác nhận đã thanh toán</button>
+    </form>
 
     <footer class="footer">
         <p>© 2025 GoHanoi. All rights reserved.</p>
@@ -67,8 +107,8 @@
             <a href="#"><i data-feather="twitter"></i></a>
         </div>
     </footer>
-
-    <script src="../js/payment.js"></script>
+    <script src="/public/js/decodeToken.js"></script>
+    <script type="module" src="../js/payment.js"></script>
     <script>
         feather.replace();
     </script>

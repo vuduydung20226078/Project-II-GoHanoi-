@@ -176,8 +176,8 @@
     </button>
     <section id="in-cart">
         <button class="actions-in-cart" onclick="pickAllElementInCart(this)">Chọn tất cả</button>
-        <button class="actions-in-cart" onclick="deleteElementsInCart()">Xóa nhiều</button>
-        <button class="actions-in-cart">Tiến hành thuê xe</button>
+        <button class="actions-in-cart" onclick="deleteAllInCart()">Xóa tất cả</button>
+        <button class="actions-in-cart" id="payment-btn">Tiến hành thuê xe</button>
         <table id="list-info-cart">
             <thead>
                 <tr>
@@ -229,7 +229,9 @@
         </table>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="/public/js/decodeToken.js"></script>
     <script src="/public/js/showproduct.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

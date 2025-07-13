@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Users Management</title>
+    <link rel="stylesheet" href="/public/css/manage_user.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>🚴 BikeRental Admin</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Bikes Management</li>
+            <li class="active">Users Management</li>
+            <li>Orders Management</li>
+            <li>Reports</li>
+            <li>Logout</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Users Management</h1>
+            <input type="text" id="searchInput" placeholder="🔍 Search by ID or Name" />
+        </header>
+
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Total Orders</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table">
+                    <!-- Users data -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Edit User -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Edit User</h2>
+            <form id="userForm">
+                <label for="userName">Name:</label>
+                <input type="text" id="userName" required />
+                <label for="userPhone">Phone:</label>
+                <input type="text" id="userPhone" required />
+                <label for="userStatus">Status:</label>
+                <select id="userStatus">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+                <button type="submit" id="saveUserBtn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confirm Delete -->
+    <div class="modal" id="confirmDeleteModal">
+        <div class="modal-content">
+            <h3>⚠️ Xác nhận xóa</h3>
+            <p>Bạn có chắc chắn muốn xóa user này không?</p>
+            <div class="confirm-buttons">
+                <button id="confirmDeleteBtn" class="confirm-btn delete-btn">Xác nhận</button>
+                <button id="cancelDeleteBtn" class="confirm-btn cancel-btn">Hủy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/manageUser.js"></script>
+</body>
+
+</html>

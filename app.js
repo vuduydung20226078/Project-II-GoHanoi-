@@ -27,9 +27,14 @@ app.use('/api/auth', authRoutes);
 const cartRoutes = require('./src/routes/cart.routes');
 app.use('/api/cart', cartRoutes);
 
+const paymentRoutes = require('./src/routes/payment.routes');
+app.use('/api/payments', paymentRoutes);
+
+const qrConfirmRoutes = require('./src/routes/qrConfirm.routes');
+app.use('/api/scan', qrConfirmRoutes);
 const PORT = 3000;
 
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync().then(() => {
   console.log('Database synced!');
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
